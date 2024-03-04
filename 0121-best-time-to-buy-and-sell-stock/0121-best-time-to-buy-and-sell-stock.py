@@ -1,8 +1,6 @@
 class Solution(object):
     def maxProfit(self, prices):
-
-        left = 0
-        right = 1
+        left, right = 0, 1
         max_profit = 0
         while right < len(prices):
             if prices[left] < prices[right]:
