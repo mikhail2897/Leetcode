@@ -9,15 +9,18 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-        prev = None
+        pre = None
         curr = head
+        next_p = None
 
         while curr:
-            next_temp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = next_temp
-        return prev
+            next_p = curr.next
+            curr.next = pre
+
+            pre = curr
+            curr = next_p
+
+        return pre
         
 
         
