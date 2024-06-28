@@ -1,9 +1,9 @@
 # Write your MySQL query statement below
-select 
+SELECT 
     id,
-    case when p_id is null then 'Root'
-         when id in (select p_id from tree) then 'Inner'
-         else 'Leaf'
-    end as type
-
-from tree 
+    CASE 
+        WHEN p_id IS NULL THEN 'Root'
+        WHEN id IN (SELECT DISTINCT p_id FROM Tree WHERE p_id IS NOT NULL) THEN 'Inner'
+        ELSE 'Leaf'
+    END AS type
+FROM Tree;
